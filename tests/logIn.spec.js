@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.only("Login with username and Password", async ({ page }) => {
+test("Login with username and Password", async ({ page }) => {
   await page.goto("https://webdriveruniversity.com/index.html");
   await page
     .locator("//h1[normalize-space()='LOGIN PORTAL']")
