@@ -1,5 +1,10 @@
+# Node.js dependencies
 node_modules/
+
+# Test results and reports
 /test-results/
 /playwright-report/
 /blob-report/
+
+# Playwright cache
 /playwright/.cache/
