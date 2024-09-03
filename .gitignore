@@ -1,10 +1,10 @@
+# Node.js dependencies
 node_modules/
-test-results/
-playwright-report/
+
+# Test results and reports
+/test-results/
+/playwright-report/
 /blob-report/
+
+# Playwright cache
 /playwright/.cache/
-/playwright/.local-browsers/
-/playwright/.local-chromium/
-/playwright/.local-firefox/
-/playwright/.local-webkit/
-/playwright/.local-msedge/

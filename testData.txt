@@ -1,2 +1,3 @@
  //https://www.automationexercise.com/login
  //https://webdriveruniversity.com/index.html
+ //npx playwright test --config=playwright-uat.config.js - cmd for execute specific config file configuration
