@@ -1,20 +1,21 @@
 import { test, expect } from "@playwright/test";
+import { logInPage } from "../pages/logIn.page";
 
-test("Login with username and Password", async ({ page }) => {
-  await page.goto("https://webdriveruniversity.com/index.html");
-  await page
-    .locator("//h1[normalize-space()='LOGIN PORTAL']")
-    .click({ force: true });
-  const page1Promis = page.waitForEvent("popup");
-  const page1 = await page1Promis;
-  await page1.locator("//input[@id='text']").fill("akshayband123.com");
-  await page1.locator("//input[@id='password']").fill("password123");
-  await page1.locator("//button[@id='login-button']").click({ force: true });
+test.describe.only("Login Page", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("https://webdriveruniversity.com/index.html");
+    await expect(page).toHaveTitle("WebDriverUniversity.com");
+  });
 
-  // Listen for dialog events
-  page1.on("dialog", async (dialog) => {
-    console.log(`Dialog message: ${dialog.message()}`);
-    // Accept the dialog
-    await dialog.accept(); // Use dialog.dismiss() to dismiss
+  test("Login with username and Password", async ({ page }) => {
+    const loginPage = new logInPage(page);
+    await loginPage.navigateToLoginPage();
+    await loginPage.logIn();
+    // Listen for dialog events
+    await page1.on("dialog", async (dialog) => {
+      console.log(`Dialog message: ${dialog.message()}`);
+      // Accept the dialog
+      await dialog.accept(); // Use dialog.dismiss() to dismiss
+    });
   });
 });
