@@ -3,7 +3,7 @@ import { ContactUsPage } from "../pages/contactUs.page";
 
 test.describe.only("Contact Us Page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("https://webdriveruniversity.com/index.html");
+    await page.goto(process.env.URL);
     await expect(page).toHaveTitle("WebDriverUniversity.com");
   });
 
